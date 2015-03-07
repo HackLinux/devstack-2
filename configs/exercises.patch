@@ -1,0 +1,35 @@
+diff -u exercise_org/boot_from_volume.sh exercises/boot_from_volume.sh
+--- exercise_org/boot_from_volume.sh	2015-01-20 18:18:08.101094087 +0900
++++ exercises/boot_from_volume.sh	2015-01-19 21:56:08.522098011 +0900
+@@ -167,7 +167,7 @@
+ # Boot using the --block-device-mapping param. The format of mapping is:
+ # <dev_name>=<id>:<type>:<size(GB)>:<delete_on_terminate>
+ # Leaving the middle two fields blank appears to do-the-right-thing
+-VM_UUID=$(nova boot --flavor $INSTANCE_TYPE --image $IMAGE --block-device-mapping vda=$VOL_ID --security-groups=$SECGROUP --key-name $KEY_NAME $VM_NAME | grep ' id ' | get_field 2)
++VM_UUID=$(nova boot --flavor $INSTANCE_TYPE --image $IMAGE --block-device-mapping vdb=$VOL_ID --security-groups=$SECGROUP --key-name $KEY_NAME $VM_NAME | grep ' id ' | get_field 2)
+ die_if_not_set $LINENO VM_UUID "Failure launching $VM_NAME"
+ 
+ # Check that the status is active within ACTIVE_TIMEOUT seconds
+diff -u exercise_org/bundle.sh exercises/bundle.sh
+--- exercise_org/bundle.sh	2015-01-20 18:18:08.101094087 +0900
++++ exercises/bundle.sh	2015-01-19 22:06:23.578108722 +0900
+@@ -53,7 +53,7 @@
+ BUCKET=testbucket
+ IMAGE=bundle.img
+ truncate -s 5M /tmp/$IMAGE
+-euca-bundle-image -i /tmp/$IMAGE || die $LINENO "Failure bundling image $IMAGE"
++euca-bundle-image -r x86_64 -i /tmp/$IMAGE || die $LINENO "Failure bundling image $IMAGE"
+ 
+ euca-upload-bundle --debug -b $BUCKET -m /tmp/$IMAGE.manifest.xml || die $LINENO "Failure uploading bundle $IMAGE to $BUCKET"
+
+--- exercise_org/floating_ips.sh 2015-03-07 11:39:09.176181909 +0900
++++ exercise/floating_ips.sh     2015-03-07 11:39:28.084182273 +0900
+@@ -145,7 +145,7 @@
+ # ------------
+
+ # Allocate a floating IP from the default pool
+-FLOATING_IP=$(nova floating-ip-create | grep $DEFAULT_FLOATING_POOL | get_field 1)
++FLOATING_IP=$(nova floating-ip-create | grep $DEFAULT_FLOATING_POOL | get_field 2)
+ die_if_not_set $LINENO FLOATING_IP "Failure creating floating IP from pool $DEFAULT_FLOATING_POOL"
+
+ # List floating addresses 
