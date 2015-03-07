@@ -1,5 +1,5 @@
 diff -u exercise_org/boot_from_volume.sh exercises/boot_from_volume.sh
---- exercise_org/boot_from_volume.sh	2015-01-20 18:18:08.101094087 +0900
+--- exercises_org/boot_from_volume.sh	2015-01-20 18:18:08.101094087 +0900
 +++ exercises/boot_from_volume.sh	2015-01-19 21:56:08.522098011 +0900
 @@ -167,7 +167,7 @@
  # Boot using the --block-device-mapping param. The format of mapping is:
@@ -11,7 +11,7 @@ diff -u exercise_org/boot_from_volume.sh exercises/boot_from_volume.sh
  
  # Check that the status is active within ACTIVE_TIMEOUT seconds
 diff -u exercise_org/bundle.sh exercises/bundle.sh
---- exercise_org/bundle.sh	2015-01-20 18:18:08.101094087 +0900
+--- exercises_org/bundle.sh	2015-01-20 18:18:08.101094087 +0900
 +++ exercises/bundle.sh	2015-01-19 22:06:23.578108722 +0900
 @@ -53,7 +53,7 @@
  BUCKET=testbucket
@@ -22,8 +22,8 @@ diff -u exercise_org/bundle.sh exercises/bundle.sh
  
  euca-upload-bundle --debug -b $BUCKET -m /tmp/$IMAGE.manifest.xml || die $LINENO "Failure uploading bundle $IMAGE to $BUCKET"
 
---- exercise_org/floating_ips.sh 2015-03-07 11:39:09.176181909 +0900
-+++ exercise/floating_ips.sh     2015-03-07 11:39:28.084182273 +0900
+--- exercises_org/floating_ips.sh 2015-03-07 11:39:09.176181909 +0900
++++ exercises/floating_ips.sh     2015-03-07 11:39:28.084182273 +0900
 @@ -145,7 +145,7 @@
  # ------------
 
