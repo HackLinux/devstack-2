@@ -1,6 +1,10 @@
+<<<<<<< HEAD
 #!/bin/bash -x
 cd ~
 rm -rf devstack
+=======
+#!/usr/bin/env bash
+>>>>>>> 739b53234efc876ef6b262a8e76cd3620763fe22
 git clone https://git.openstack.org/openstack-dev/devstack
 if [[ -e ~/files/ ]]; then
 	ln -s ~/files/Fedora-x86_64-20-20140618-sda.qcow2 ~/devstack/files/Fedora-x86_64-20-20140618-sda.qcow2
