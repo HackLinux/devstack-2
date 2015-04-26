@@ -4,5 +4,5 @@ sudo route del -net 10.1.1.0/24
 sudo ovs-vsctl del-br br-tun
 ./unstack.sh
 ./clean.sh
-./stack.sh
+FORCE=yes ./stack.sh
 sudo ovs-vsctl add-port br-ex eth1
